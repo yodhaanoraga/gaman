@@ -1,14 +1,14 @@
 # node
 
-The Arionum (ARO) cryptocurrency node.
+Gaman Blockchain node. Gaman is an Blockchain which containing GAN Coin as the main cryptocurrency. This blockchain is forked from Arionum (ARO) Blockchain.
 
 ## Install
 
 **Hardware Requirements:**
 ```
-2GB RAM
-1 CPU Core
-50GB DISK
+2GB RAM or more
+1 CPU Core or more
+50GB DISK or more
 ```
 **Requirements:**
 
@@ -31,24 +31,22 @@ The node should have a public IP and be accessible over internet.
 
 ## Links
 
-- Official website: https://www.arionum.com
-- Block explorer: https://arionum.info
-- Forums: https://forum.arionum.com
+- Official website: https://www.gaman.web.id
+- Block explorer: https://info.gaman.web.id
+- Forums: https://forum.gaman.web.id
 
 ## Development Fund
 
 Coin | Address
 ---- | --------
-[ARO]: | 5WuRMXGM7Pf8NqEArVz1NxgSBptkimSpvuSaYC79g1yo3RDQc8TjVtGH5chQWQV7CHbJEuq9DmW5fbmCEW4AghQr
-[LTC]: | LWgqzbXGeucKaMmJEvwaAWPFrAgKiJ4Y4m
-[BTC]: | 1LdoMmYitb4C3pXoGNLL1VRj7xk3smGXoU
-[ETH]: | 0x4B904bDf071E9b98441d25316c824D7b7E447527
-[BCH]: | qrtkqrl3mxzdzl66nchkgdv73uu3rf7jdy7el2vduw
+[ARO]: | UnhhKyFdmdRrHDFxEyLJ76Q1JSxYfGptjj3W2hTJDkDpv2j9prUEsC6EwaGDMgHF4DA8QvR7vKCy4sKpE8tLfqa
+[BTC]: | 
+[ETH]: | 
+[BCH]: | 
 
-If you'd like to support the Arionum development, you can donate to the addresses listed above.
+If you'd like to support the Gaman development, you can donate to the addresses listed above.
 
 [aro]: https://arionum.com
-[ltc]: https://litecoin.org
 [btc]: https://bitcoin.org
 [eth]: https://ethereum.org
 [bch]: https://www.bitcoincash.org
