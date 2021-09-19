@@ -1,9 +1,9 @@
 <?php
 /*
 The MIT License (MIT)
-Copyright (c) 2018 AroDev
+Copyright (c) 2021 GanDev
 
-www.arionum.com
+www.gaman.web.id
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,7 @@ $current = $block->current();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Arionum Node</title>
+    <title>Gaman Node</title>
     <style>
         .title:not(:last-child) {
             margin-bottom: 1.5rem;
@@ -287,7 +287,7 @@ $current = $block->current();
 <section class="hero is-dark is-fullheight">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title">Arionum Node</h1>
+            <h1 class="title">Gaman Node</h1>
 
             <div class="field is-grouped is-grouped-multiline">
                 <div class="control">
