@@ -1,6 +1,6 @@
 {
-    "name": "arionum/node",
-    "description": "The Arionum (ARO) cryptocurrency node.",
+    "name": "gaman/node",
+    "description": "Gaman Blockchain node. Gaman is an Blockchain which containing GAN Coin as the main cryptocurrency. This blockchain is forked from Arionum (ARO) Blockchain.",
     "license": "MIT",
     "require": {
         "php": "^7.2",
