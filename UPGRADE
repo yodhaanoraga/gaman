@@ -1,5 +1,5 @@
-In order to upgrade your Arionum Node, follow the next steps:
-1. Download the source code from https://github.com/arionum/node
+In order to upgrade your Gaman Node, follow the next steps:
+1. Download the source code from https://github.com/yodhaanoraga/gaman
 2. Edit the include/config.inc.php with the DB details
 3. Replace your old node folder with the new one.
 4. chmod 777 tmp -R
