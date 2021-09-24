@@ -1,6 +1,6 @@
 <?php
-// ARO version
-define("VERSION", "1.0.0-alpha.6");
+// Gaman version
+define("VERSION", "1.0.0-beta.1");
 // UTC timezone by default
 date_default_timezone_set("UTC");
 
