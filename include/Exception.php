@@ -1,10 +1,10 @@
 <?php
 
-namespace Arionum\Node;
+namespace Gaman\Node;
 
 /**
  * Class Exception
- * A custom exception for Arionum error handling.
+ * A custom exception for Gaman error handling.
  */
 class Exception extends \Exception
 {
