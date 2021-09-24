@@ -1,6 +1,6 @@
 <?php
 
-namespace Arionum\Node;
+namespace Gaman\Node;
 
 /**
  * Class InitialPeers
@@ -9,7 +9,7 @@ final class InitialPeers
 {
     public const MINIMUM_PEERS_REQUIRED = 2;
     public const PRELOAD_ERROR = 'Unable to retrieve peers from the preload list.';
-    public const PRELOAD_LIST = 'https://www.arionum.com/peers.txt';
+    public const PRELOAD_LIST = 'https://gaman.web.id/peers.txt';
 
     /**
      * @var array
