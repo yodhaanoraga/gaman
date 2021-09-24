@@ -87,7 +87,7 @@ class Block
             if ($votes['masternodereward50']==1) {
                 $mn_reward_rate=0.5;
             }
-            // minimum reward to always be 10 aro
+            // minimum reward to always be 10 gan
             if ($votes['endless10reward']==1&&$reward<10) {
                 $reward=10;
             }
@@ -313,7 +313,7 @@ class Block
     {
         global $db;
 
-        $arodev='PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCvcUb8x4p38GFbZWaJKcncEWqUbe7YJtrDXomwn7DtDYuyYnN2j6s4nQxP1u9BiwCA8U4TjtC9Z21j3R3STLJSFyL';
+        $gandev='PZ8Tyr4Nx8MHsRAGMpZmZ6TWY63dXWSCvcUb8x4p38GFbZWaJKcncEWqUbe7YJtrDXomwn7DtDYuyYnN2j6s4nQxP1u9BiwCA8U4TjtC9Z21j3R3STLJSFyL';
 
         // masternode votes
         if ($height%43200==0) {
@@ -332,9 +332,9 @@ class Block
                     }
                 }
             } else {
-                // If less than 50% of the mns have voting key, AroDev's votes are used
-                _log("Counting AroDev votes", 3);
-                $r=$db->run("SELECT message FROM transactions WHERE version=106 AND height>:height AND public_key=:pub", [':height'=>$height-43200, ":pub"=>$arodev]);
+                // If less than 50% of the mns have voting key, GanDev's votes are used
+                _log("Counting GanDev votes", 3);
+                $r=$db->run("SELECT message FROM transactions WHERE version=106 AND height>:height AND public_key=:pub", [':height'=>$height-43200, ":pub"=>$gandev]);
                 foreach ($r as $x) {
                     $blacklist[]=san($x['message']);
                 }
@@ -372,9 +372,9 @@ class Block
                     }
                 }
             } else {
-                _log("Counting AroDev blockchain votes", 3);
-                // If less than 50% of the mns have voting key, AroDev's votes are used
-                $r=$db->run("SELECT message FROM transactions WHERE version=107 AND height>:height AND public_key=:pub", [':height'=>$height-129600, ":pub"=>$arodev]);
+                _log("Counting GanDev blockchain votes", 3);
+                // If less than 50% of the mns have voting key, GanDev's votes are used
+                $r=$db->run("SELECT message FROM transactions WHERE version=107 AND height>:height AND public_key=:pub", [':height'=>$height-129600, ":pub"=>$gandev]);
                 foreach ($r as $x) {
                     $voted[]=san($x['message']);
                 }
@@ -427,15 +427,15 @@ class Block
                 $db->run("UPDATE assets_market SET val_done=val_done+:done WHERE id=:id", [":id"=>$x['id'], ":done"=>$use]);
                 // if we filled the order, we should exit the loop
                 $db->run("INSERT into assets_balance SET account=:account, asset=:asset, balance=:balance ON DUPLICATE KEY UPDATE balance=balance+:balance2", [":account"=>$x['account'], ":asset"=>$x['asset'], ":balance"=>$use, ":balance2"=>$use]);
-                $aro=$use*$x['price'];
-                $db->run("UPDATE accounts SET balance=balance+:balance WHERE id=:id", [":balance"=>$aro, ":id"=>$ask['account']]);
+                $gan=$use*$x['price'];
+                $db->run("UPDATE accounts SET balance=balance+:balance WHERE id=:id", [":balance"=>$gan, ":id"=>$ask['account']]);
 
                 $random = hex2coin(hash("sha512", $x['id'].$ask['id'].$val.$hash));
                 $new = [
                         "id"         => $random,
                         "public_key" => $x['id'],
                         "dst"        => $ask['id'],
-                        "val"        => $aro,
+                        "val"        => $gan,
                         "fee"        => 0,
                         "signature"  => $signature,
                         "version"    => 58,
@@ -472,12 +472,12 @@ class Block
         }
         foreach ($r as $x) {
             $asset=$db->row("SELECT id, public_key, balance FROM accounts WHERE id=:id", [":id"=>$x['id']]);
-            // minimum balance 1 aro
+            // minimum balance 1 gan
             if ($asset['balance']<1) {
                 _log("Asset $asset[id] not enough balance", 3);
                 continue;
             }
-            _log("Autodividend $asset[id] - $asset[balance] ARO", 3);
+            _log("Autodividend $asset[id] - $asset[balance] GAN", 3);
             // every 10000 blocks and at minimum 10000 of asset creation or last distribution, manual or automated
             $last=$db->single("SELECT height FROM transactions WHERE (version=54 OR version=50 or version=57) AND public_key=:pub ORDER by height DESC LIMIT 1", [":pub"=>$asset['public_key']]);
             if ($height<$last+100) { // 100 for testnet
@@ -916,7 +916,7 @@ class Block
                 $mn_reward_rate=0.5;
             }
 
-            // minimum reward to always be 10 aro
+            // minimum reward to always be 10 gan
             if ($votes['endless10reward']==1&&$reward<10) {
                 $reward=10;
             }
