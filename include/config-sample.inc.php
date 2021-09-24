@@ -28,7 +28,7 @@ $_config['max_peers'] = 30;
 $_config['testnet'] = false;
 
 // To avoid any problems if other clones are made
-$_config['coin'] = 'arionum';
+$_config['coin'] = 'gan';
 
 // Allow others to connect to the node api (if set to false, only the below 'allowed_hosts' are allowed)
 $_config['public_api'] = true;
@@ -56,33 +56,8 @@ $_config['max_test_peers'] = 5;
 
 // The initial peers to sync from in sanity
 $_config['initial_peer_list'] = [
-    'http://peer1.arionum.com',
-    'http://peer2.arionum.com',
-    'http://peer3.arionum.com',
-    'http://peer4.arionum.com',
-    'http://peer5.arionum.com',
-    'http://peer6.arionum.com',
-    'http://peer7.arionum.com',
-    'http://peer8.arionum.com',
-    'http://peer9.arionum.com',
-    'http://peer10.arionum.com',
-    'http://peer11.arionum.com',
-    'http://peer12.arionum.com',
-    'http://peer13.arionum.com',
-    'http://peer14.arionum.com',
-    'http://peer15.arionum.com',
-    'http://peer16.arionum.com',
-    'http://peer17.arionum.com',
-    'http://peer18.arionum.com',
-    'http://peer19.arionum.com',
-    'http://peer20.arionum.com',
-    'http://peer21.arionum.com',
-    'http://peer22.arionum.com',
-    'http://peer23.arionum.com',
-    'http://peer24.arionum.com',
-    'http://peer25.arionum.com',
-    'http://peer26.arionum.com',
-    'http://peer27.arionum.com',
+    'http://peer1.gaman.web.id',
+    'http://peer2.gaman.web.id',
 ];
 
 // does not peer with any of the peers. Uses the seed peers and syncs only from those peers. Requires a cronjob on sanity.php
