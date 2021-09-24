@@ -1,6 +1,6 @@
 <?php
 
-use Arionum\Blacklist;
+use Gaman\Blacklist;
 
 class Transaction
 {
@@ -215,8 +215,8 @@ class Transaction
                 $ask=$db->row("SELECT * FROM assets_market WHERE id=:id", [':id'=>$x['dst']]);
 
                 $db->run("UPDATE assets_balance SET balance=balance-:balance WHERE account=:account AND asset=:asset", [":account"=>$bid['account'], ":asset"=>$bid['asset'], ":balance"=>$use]);
-                $aro=$x['val'];
-                $db->run("UPDATE accounts SET balance=balance-:balance WHERE id=:id", [":balance"=>$aro, ":id"=>$ask['account']]);
+                $gan=$x['val'];
+                $db->run("UPDATE accounts SET balance=balance-:balance WHERE id=:id", [":balance"=>$gan, ":id"=>$ask['account']]);
             }
 
 
@@ -578,7 +578,7 @@ class Transaction
                 $coins=number_format(($g['balance']/$total)*$x['val'], 8, '.', '');
                 $fee=number_format(($g['balance']/$total)*$x['fee'], 8, '.', '');
                 $hash = hex2coin(hash("sha512", $x['id'].$g['account']));
-                _log("Distributing to $g[account] for $g[balance] units - $coins ARO", 3);
+                _log("Distributing to $g[account] for $g[balance] units - $coins GAN", 3);
                 
                 $new = [
                     "id"         => $hash,
@@ -832,7 +832,7 @@ class Transaction
                 _log("Invalid asset tradable", 3);
                 return false;
             }
-            // If the price is set, it cannot be sold by the asset wallet at a dfferent price. Max price 1.000.000 aro
+            // If the price is set, it cannot be sold by the asset wallet at a dfferent price. Max price 1.000.000 gan
             if (number_format($asset[2], 8, '.', '')!=$asset[2]||$asset[2]<0||$asset[2]>1000000) {
                 _log("Invalid asset price", 3);
                 return false;
@@ -928,7 +928,7 @@ class Transaction
                 _log("Invalid asset", 3);
                 return false;
             }
-            // the sale price per unit has to be at least 0.00000001 or max 1000000 aro
+            // the sale price per unit has to be at least 0.00000001 or max 1000000 gan
             if (number_format($asset[1], 8, '.', '')!=$asset[1]||$asset[1]<=0||$asset[1]>1000000) {
                 _log("Invalid asset price", 3);
                 return false;
@@ -953,7 +953,7 @@ class Transaction
             } else {
                 $balance=$acc->balance($src);
                 if ($balance<$asset[2]*$asset[1]) {
-                    _log("Not enough aro balance", 3);
+                    _log("Not enough gan balance", 3);
                     return false;
                 }
                 if ($blockasset['id']!=$src) {
@@ -984,7 +984,7 @@ class Transaction
         if ($x['version']==54) {
             $balance=$acc->balance($src);
             if ($balance<$x['val']||$x['val']<0.00000001) {
-                _log("Not enough aro balance", 3);
+                _log("Not enough gan balance", 3);
                 return false;
             }
         }
