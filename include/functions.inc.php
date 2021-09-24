@@ -185,7 +185,7 @@ function base58_decode($base58)
     return $output;
 }
 
-// converts PEM key to the base58 version used by ARO
+// converts PEM key to the base58 version used by Gaman
 function pem2coin($data)
 {
     $data = str_replace("-----BEGIN PUBLIC KEY-----", "", $data);
