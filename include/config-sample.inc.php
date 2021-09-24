@@ -117,7 +117,7 @@ $_config['auto_resync'] = true;
 $_config['enable_logging'] = false;
 
 // The specified file to write to (this should not be publicly visible)
-$_config['log_file'] = '/var/log/aro.log';
+$_config['log_file'] = '/var/log/gan.log';
 
 // Log verbosity (default 0, maximum 3)
 $_config['log_verbosity'] = 0;
