@@ -253,7 +253,7 @@ if ($dbversion == 11) {
     $db->run("INSERT INTO `votes` (`id`, `nfo`, `val`) VALUES
     ('coldstacking', 'Enable cold stacking for inactive masternodes', 1),
     ('emission30', 'Emission reduction by 30 percent', 1),
-    ('endless10reward', 'Minimum reward to be 10 aro forever', 0),
+    ('endless10reward', 'Minimum reward to be 10 gan forever', 0),
     ('masternodereward50', 'Masternode reward to be 50 percent of the block reward', 1);");
     
     $db->run("ALTER TABLE `votes`  ADD PRIMARY KEY (`id`);");
