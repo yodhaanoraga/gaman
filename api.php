@@ -1,9 +1,9 @@
 <?php
 /*
 The MIT License (MIT)
-Copyright (c) 2018 AroDev
+Copyright (c) 2018 GanDev
 
-www.arionum.com
+www.gaman.web.id
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -67,7 +67,7 @@ header('Content-Type: application/json');
  *     }
  */
 
-use Arionum\Blacklist;
+use Gaman\Blacklist;
 
 require_once __DIR__.'/include/init.inc.php';
 
@@ -93,7 +93,7 @@ if (!empty($_POST['data'])) {
  * @api {get} /api.php?q=getAddress  02. getAddress
  * @apiName getAddress
  * @apiGroup API
- * @apiDescription Converts the public key to an ARO address.
+ * @apiDescription Converts the public key to an Gaman address.
  *
  * @apiParam {string} public_key The public key
  *
@@ -130,7 +130,7 @@ if ($q == "getAddress") {
      * @apiParam {string} [account] Account id / address
      * @apiParam {string} [alias] alias
      *
-     * @apiSuccess {string} data The ARO balance
+     * @apiSuccess {string} data The GAN balance
      */
 
     $public_key = $data['public_key'];
@@ -160,7 +160,7 @@ if ($q == "getAddress") {
      * @apiParam {string} [public_key] Public key
      * @apiParam {string} [account] Account id / address
      *
-     * @apiSuccess {string} data The ARO balance
+     * @apiSuccess {string} data The GAN balance
      */
 
     $account = $data['account'];
@@ -405,9 +405,12 @@ if ($q == "getAddress") {
      */
     $current = $block->current();
 
+    /*
+    * use this only for hard fork event
     if ($current['height'] > 10790 && $current['height'] < 10810) {
         api_err("Hard fork in progress. Please retry the transaction later!"); //10800
     }
+    */
 
     $acc = new Account();
     $block = new Block();
@@ -609,7 +612,7 @@ if ($q == "getAddress") {
      * @api {get} /api.php?q=randomNumber 16. randomNumber
      * @apiName randomNumber
      * @apiGroup API
-     * @apiDescription Returns a random number based on an ARO block id.
+     * @apiDescription Returns a random number based on an Gaman block id.
      *
      * @apiParam {numeric} height The height of the block on which the random number will be based on (should be a future block when starting)
      * @apiParam {numeric} min Minimum number (default 1)
