@@ -1,9 +1,9 @@
 <?php
 /*
 The MIT License (MIT)
-Copyright (c) 2018 AroDev
+Copyright (c) 2021 GanDev
 
-www.arionum.com
+www.gaman.web.id
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -85,19 +85,24 @@ if ($current['height']==1) {
 
     echo "DB name: $db_name\n";
     echo "DB host: $db_host\n";
-    echo "Downloading the blockchain dump from arionum.info\n";
-    $arofile=__DIR__ . '/tmp/aro.sql';
+    // echo "Downloading the blockchain dump from arionum.info\n";
+    echo "Downloading the blockchain dump from gaman.web.id\n";
+    // $arofile=__DIR__ . '/tmp/aro.sql';
+    $ganfile=__DIR__ . '/tmp/gan.sql';
     if (file_exists("/usr/bin/curl")) {
-        system("/usr/bin/curl -o $arofile 'https://arionum.info/dump/aro.sql'", $ret);
+        // system("/usr/bin/curl -o $arofile 'https://arionum.info/dump/aro.sql'", $ret);
+        system("/usr/bin/curl -o $ganfile 'https://gaman.web.id/dump/gan.sql'", $ret);
     } elseif (file_exists("/usr/bin/wget")) {
-        system("/usr/bin/wget -O $arofile 'https://arionum.info/dump/aro.sql'", $ret);
+        // system("/usr/bin/wget -O $arofile 'https://arionum.info/dump/aro.sql'", $ret);
+        system("/usr/bin/wget -O $ganfile 'https://gaman.web.id/dump/gan.sql'", $ret);
     } else {
         die("/usr/bin/curl and /usr/bin/wget not installed or inaccessible. Please install either of them.");
     }
     
 
     echo "Importing the blockchain dump\n";
-    system("mysql -h ".escapeshellarg($db_host)." -u ".escapeshellarg($_config['db_user'])." -p".escapeshellarg($_config['db_pass'])." ".escapeshellarg($db_name). " < ".$arofile);
+    // system("mysql -h ".escapeshellarg($db_host)." -u ".escapeshellarg($_config['db_user'])." -p".escapeshellarg($_config['db_pass'])." ".escapeshellarg($db_name). " < ".$arofile);
+    system("mysql -h ".escapeshellarg($db_host)." -u ".escapeshellarg($_config['db_user'])." -p".escapeshellarg($_config['db_pass'])." ".escapeshellarg($db_name). " < ".$ganfile);
     echo "Bootstrapping completed. Waiting 2mins for the tables to be unlocked.\n";
     
     while (1) {
@@ -242,11 +247,11 @@ if ($total_peers == 0 && $_config['testnet'] == false) {
     $i = 0;
     echo 'No peers found. Attempting to get peers from the initial list.'.PHP_EOL;
 
-    $initialPeers = new \Arionum\Node\InitialPeers($_config['initial_peer_list'] ?? []);
+    $initialPeers = new \Gaman\Node\InitialPeers($_config['initial_peer_list'] ?? []);
 
     try {
         $peers = $initialPeers->getAll();
-    } catch (\Arionum\Node\Exception $e) {
+    } catch (\Gaman\Node\Exception $e) {
         @unlink(SANITY_LOCK_PATH);
         die($e->getMessage().PHP_EOL);
     }
