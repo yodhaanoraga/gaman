@@ -1,7 +1,7 @@
 <?php
 /*
 The MIT License (MIT)
-Copyright (c) 2018 GanDev
+Copyright (c) 2021 GanDev
 
 www.gaman.web.id
 
